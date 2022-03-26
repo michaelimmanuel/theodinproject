@@ -16,6 +16,9 @@
 
 
         <div class="flex justify-end mt-10">
+            <button class="px-6 py-3 mx-7 font-bold bg-red-500 text-gray-100 rounded shadow" id="delete">
+                Delete
+            </button>
             <button class="px-6 py-3  font-bold bg-blue-800 text-gray-100 rounded shadow" id="popup-form">
                 Add Book
             </button>
@@ -24,18 +27,25 @@
         
         <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-5">
             <table class=" min-w-full border text-center" id="table">
-                <thead class="text-s border-b text-gray-700 uppercase bg-gray-200 text-center ">
+                <thead class="text-s text-gray-700 uppercase bg-gray-200 text-center ">
                     <tr>
-                        <th scope="col" class="px-6 py-3 w-4/8 ">
+                        <th scope="col" class="p-3 ">
+                            <div class="flexbox items-center justify-end">
+                                <input id="checkbox-all" type="checkbox" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 ">
+                                <label for="checkbox-all" class="sr-only">checkbox</label>
+                            </div>
+                        </th>
+
+                        <th scope="col" class="px-6 py-3 ">
                             Title
                         </th>
-                        <th scope="col" class="px-6 py-3 w-2/8 ">
+                        <th scope="col" class="px-6 py-3  ">
                             Author
                         </th>
-                        <th scope="col" class="px-6 py-3 w-1/8 ">
+                        <th scope="col" class="px-6 py-3 ">
                             Total Pages
                         </th>
-                        <th scope="col" class="px-6 py-3 w-1/8  ">
+                        <th scope="col" class="px-6 py-3   ">
                             Status
                         </th>
                     </tr>
