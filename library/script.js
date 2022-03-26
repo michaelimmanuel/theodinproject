@@ -6,6 +6,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
     const popup_form = document.querySelector("#popup-form");
     const form_submit = document.querySelector('#form-submit');
     const delete_btn = document.querySelector('#delete');
+    const search_bar = document.querySelector('#search-bar');
 
     popup_form.addEventListener('click', ()=>{
         overlay.classList.remove('hidden');
@@ -19,6 +20,9 @@ window.addEventListener('DOMContentLoaded', ()=>{
     });
     delete_btn.addEventListener('click', ()=>{
         delete_book();
+    });
+    search_bar.addEventListener('keyup', ()=>{
+        search_book();
     });
 })
 
@@ -107,6 +111,35 @@ function delete_book(){
         }
     }
     update_table();
+}
+
+function search_book(){
+    // let input = document.querySelector('#search-bar');
+    // let filter = input.value.toUpperCase();
+    // let table = document.querySelector("table");
+    // let tr = table.getElementsByTagName("tr");
+
+    var input, filter, found, table, tr, td, i, j;
+    input = document.getElementById("search-bar");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("table");
+    tr = table.getElementsByTagName("tr");
+    
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td") ; 
+        for(j=0 ; j<td.length ; j++)
+        {
+            let tdata = td[j] ;
+            if (tdata) {
+                if (tdata.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+                break ; 
+                } else {
+                    tr[i].style.display = "none";
+                }
+            } 
+        }
+    }
 }
 
 
